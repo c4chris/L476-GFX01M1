@@ -1,12 +1,14 @@
 /**
   ******************************************************************************
-  * @file
+  * @file    fonts.h
   * @author  MCD Application Team
-  * @version V2.0.0
+  * @version V1.0.0
+  * @date    18-February-2014
+  * @brief   Header for fonts.c file
   ******************************************************************************
   * @attention
   *
-  * COPYRIGHT(c) 2020 STMicroelectronics
+  * <h2><center>&copy; COPYRIGHT(c) 2014 STMicroelectronics</center></h2>
   *
   * Redistribution and use in source and binary forms, with or without modification,
   * are permitted provided that the following conditions are met:
@@ -30,15 +32,103 @@
   * OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
   * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   *
+  ******************************************************************************
   */
-  /* Define to prevent recursive inclusion -------------------------------------*/
-#ifndef  __RTE_COMPONENTS_H__
-#define  __RTE_COMPONENTS_H__
 
-/* Defines ------------------------------------------------------------------*/
-/* STMicroelectronics.X-CUBE-DISPLAY.1.0.0 */
-#define DISPLAY_GFX01M1
-#define DISPLAY_LCD_COMP_ILI9341
-#define DISPLAY_MEM_COMP_MX25L6433F
+/* Define to prevent recursive inclusion -------------------------------------*/
+#ifndef __FONTS_H
+#define __FONTS_H
 
-#endif /* __RTE_COMPONENTS_H__ */
+#ifdef __cplusplus
+ extern "C" {
+#endif
+
+/* Includes ------------------------------------------------------------------*/
+#include <stdint.h>
+
+/** @addtogroup Utilities
+  * @{
+  */
+  
+/** @addtogroup STM32_EVAL
+  * @{
+  */ 
+
+/** @addtogroup Common
+  * @{
+  */
+
+/** @addtogroup FONTS
+  * @{
+  */ 
+
+/** @defgroup FONTS_Exported_Types
+  * @{
+  */ 
+typedef struct _tFont
+{    
+  const uint8_t *table;
+  uint16_t Width;
+  uint16_t Height;
+  
+} sFONT;
+
+extern sFONT Font24;
+extern sFONT Font20;
+extern sFONT Font16;
+extern sFONT Font12;
+extern sFONT Font8;
+/**
+  * @}
+  */ 
+
+/** @defgroup FONTS_Exported_Constants
+  * @{
+  */ 
+#define LINE(x) ((x) * (((sFONT *)BSP_LCD_GetFont())->Height))
+
+/**
+  * @}
+  */ 
+
+/** @defgroup FONTS_Exported_Macros
+  * @{
+  */ 
+/**
+  * @}
+  */ 
+
+/** @defgroup FONTS_Exported_Functions
+  * @{
+  */ 
+/**
+  * @}
+  */
+
+#ifdef __cplusplus
+}
+#endif
+  
+#endif /* __FONTS_H */
+ 
+/**
+  * @}
+  */
+
+/**
+  * @}
+  */ 
+
+/**
+  * @}
+  */
+
+/**
+  * @}
+  */
+
+/**
+  * @}
+  */      
+
+/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

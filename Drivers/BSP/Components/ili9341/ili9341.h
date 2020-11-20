@@ -63,7 +63,7 @@
   */
 typedef int32_t (*ILI9341_Init_Func)     (void);
 typedef int32_t (*ILI9341_DeInit_Func)   (void);
-typedef int32_t (*ILI9341_GetTick_Func)  (void);
+typedef uint32_t (*ILI9341_GetTick_Func)  (void);
 typedef int32_t (*ILI9341_Delay_Func)    (uint32_t);
 typedef int32_t (*ILI9341_WriteReg_Func) (uint8_t*, uint32_t);
 typedef int32_t (*ILI9341_ReadReg_Func)  (uint8_t*, uint32_t);

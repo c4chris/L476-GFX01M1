@@ -26,8 +26,7 @@
 #endif
 
 /* Includes ------------------------------------------------------------------*/
-#include "stm32g0xx_nucleo_errno.h"
-#include "stm32g0xx_nucleo_conf.h"
+#include "stm32l4xx_nucleo_errno.h"
 
 #include "mem_conf.h"
 
@@ -38,8 +37,6 @@
 /* Exported macro ------------------------------------------------------------*/
 
 /* Exported functions prototypes ---------------------------------------------*/
-int32_t BSP_MEM_Init(uint32_t Instance);
-int32_t BSP_MEM_DeInit(uint32_t Instance);
 int32_t BSP_MEM_ReadData(uint32_t Instance, uint32_t Address, uint8_t *pData, uint16_t Size);
 
 #ifdef __cplusplus

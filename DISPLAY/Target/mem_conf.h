@@ -27,9 +27,6 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32l4xx_hal.h"
-//include "stm32g0xx_nucleo_bus.h"
-
-// #include "mem.h"
 
 /* BUS IO Instance handlers */
 extern  SPI_HandleTypeDef               hspi2;
@@ -40,11 +37,11 @@ extern  DMA_HandleTypeDef               hdma_spi2_tx;
 #define hMEMDMA_tx                      hdma_spi2_tx
 
 /* BUS IO functions */
-#define MEM_SPI_Init                    BSP_SPI2_Init
-#define MEM_SPI_DeInit                  BSP_SPI2_DeInit
 #define MEM_SPI_Recv                    BSP_SPI2_Recv
 #define MEM_SPI_Send                    BSP_SPI2_Send
-#define MEM_SPI_SendRecv                BSP_SPI2_SendRecv
+
+int32_t BSP_SPI2_Send(uint8_t *, uint16_t);
+int32_t BSP_SPI2_Recv(uint8_t *, uint16_t);
 
 /* NCS Pin mapping */
 #define MEM_NCS_GPIO_PORT               GPIOB

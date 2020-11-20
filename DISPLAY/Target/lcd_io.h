@@ -26,15 +26,10 @@
 #endif
 
 /* Includes ------------------------------------------------------------------*/
-#include "stm32g0xx_nucleo_errno.h"
-#include "stm32g0xx_nucleo_conf.h"
-
+#include "stm32l4xx_nucleo_errno.h"
 #include "lcd_conf.h"
 
 /* Exported types ------------------------------------------------------------*/
-
-/* Exported constants --------------------------------------------------------*/
-extern const LCD_UTILS_Drv_t LCD_Driver;
 
 /* Exported macro ------------------------------------------------------------*/
 

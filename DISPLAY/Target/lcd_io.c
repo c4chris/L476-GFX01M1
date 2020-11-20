@@ -21,44 +21,13 @@
 #include "lcd_io.h"
 #include "../ili9341/ili9341.h"
 
-/** @addtogroup BSP
-  * @{
-  */
-
-/** @addtogroup STM32G0XX_NUCLEO
-  * @{
-  */
-
-/** @defgroup STM32G0XX_NUCLEO_LCD STM32G0XX_NUCLEO LCD
-  * @brief      This file includes the LCD driver of
-  *             STM32G0XX_NUCLEO boards.
-  * @{
-  */
-
-/** @defgroup STM32G0XX_NUCLEO_LCD_Private_Types Private Types
-  * @{
-  */
 typedef struct
 {
   uint32_t Width;
   uint32_t Height;
   uint32_t IsMspCallbacksValid;
 }BSP_LCD_Ctx_t;
-/**
-  * @}
-  */
 
-/** @defgroup STM32G0XX_NUCLEO_LCD_Private_Functions_Prototypes Private Functions Prototypes
-  * @{
-  */
-
-/**
-  * @}
-  */
-
-/** @defgroup STM32G0XX_NUCLEO_LCD_Private_Constants Private Constants
-  * @{
-  */
 #define BUS_SPI1_POLL_TIMEOUT 0x1000U
 #define BUS_SPI2_POLL_TIMEOUT 0x1000U
 
@@ -73,67 +42,21 @@ typedef struct
 #define LCD_ORIENTATION_PORTRAIT_ROT180  ILI9341_ORIENTATION_PORTRAIT_ROT180
 #define LCD_ORIENTATION_LANDSCAPE_ROT180 ILI9341_ORIENTATION_LANDSCAPE_ROT180
 
-/* LINK UTIL LCD */
-const LCD_UTILS_Drv_t LCD_Driver =
-{
-  NULL, // BSP_LCD_DrawBitmap,
-  NULL, // BSP_LCD_FillRGBRect,
-  NULL, // BSP_LCD_DrawHLine,
-  NULL, // BSP_LCD_DrawVLine,
-  NULL, // BSP_LCD_FillRect,
-  NULL, // BSP_LCD_ReadPixel,
-  NULL, // BSP_LCD_WritePixel,
-  BSP_LCD_GetXSize,
-  BSP_LCD_GetYSize,
-  NULL,
-  NULL  // BSP_LCD_GetPixelFormat
-};
-/**
-  * @}
-  */
-
-/** @defgroup STM32G0XX_NUCLEO_LCD_Private_Macros Private Macros
-  * @{
-  */
 #define POLY_X(Z)               ((int32_t)((Points + (Z))->X))
 #define POLY_Y(Z)               ((int32_t)((Points + (Z))->Y))
 #define ABS(X)                  (((X) > 0U) ? (X) : -(X))
 
-/**
-  * @}
-  */
-
 extern SPI_HandleTypeDef hspi2;
 
-/** @defgroup STM32G0XX_NUCLEO_LCD_Exported_Variables Exported Variables
-  * @{
-  */
 void                 *LcdCompObj = NULL;
 BSP_LCD_Ctx_t        LcdCtx[LCD_INSTANCES_NBR];
-/**
-  * @}
-  */
 
-/** @defgroup STM32G0XX_NUCLEO_LCD_Private_Variables Private Variables
-  * @{
-  */
 static LCD_Drv_t        *LcdDrv = NULL;
 static ILI9341_IO_t     IOCtx = { 0 };
 static ILI9341_Object_t ObjCtx = { 0 };
-/**
-  * @}
-  */
 
-/** @defgroup STM32G0XX_NUCLEO_LCD_Private_FunctionPrototypes Private Functions
-  */
 static int32_t LCD_Probe(uint32_t Instance, uint32_t Orientation);
-/**
-  * @}
-  */
 
-/** @addtogroup STM32G0XX_NUCLEO_LCD_Exported_Functions
-  * @{
-  */
 /**
   * @brief  Initializes the LCD.
   * @param  Instance    LCD Instance
@@ -560,13 +483,6 @@ static int32_t LCD_IO_Init(void)
   LCD_CS_HIGH();
   LCD_DC_LOW();
 
-#if 0
-  if (LCD_SPI_Init() != BSP_ERROR_NONE)
-  {
-    ret = BSP_ERROR_BUS_FAILURE;
-  }
-#endif
-
   return ret;
 }
 
@@ -622,29 +538,5 @@ static int32_t LCD_Probe(uint32_t Instance, uint32_t Orientation)
 
   return ret;
 }
-
-/**
-  * @}
-  */
-
-/** @defgroup STM32G0XX_NUCLEO_LCD_Private_Functions Private Functions
-  * @{
-  */
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
-
-/**
-  * @}
-  */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

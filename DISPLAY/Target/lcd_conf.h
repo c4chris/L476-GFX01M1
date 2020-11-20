@@ -27,7 +27,6 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "stm32l4xx_hal.h"
-//include "stm32g0xx_nucleo_bus.h"
 
 #include "lcd.h"
 
@@ -40,11 +39,8 @@ extern  DMA_HandleTypeDef               hdma_spi1_tx;
 #define hLCDDMA_tx                      hdma_spi1_tx
 
 /* BUS IO functions */
-#define LCD_SPI_Init                    BSP_SPI1_Init
-#define LCD_SPI_DeInit                  BSP_SPI1_DeInit
 #define LCD_SPI_Recv                    BSP_SPI1_Recv
 #define LCD_SPI_Send                    BSP_SPI1_Send
-#define LCD_SPI_SendRecv                BSP_SPI1_SendRecv
 
 /* NCS Pin mapping */
 #define LCD_NCS_GPIO_PORT               GPIOB
